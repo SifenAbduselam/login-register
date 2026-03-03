@@ -31,21 +31,6 @@ if(isset($_POST["submit"])) {
 //  20:00 min
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if(empty($fullname) OR empty($email) OR empty($password) OR empty($passwordRepeat)) {
     array_push($errors, "All files are required");
 }
@@ -70,7 +55,34 @@ if(count($errors) >0) {
 
 else{
     require_once "database.php";
+    $sql = "INSERT INTO users(fullname, email, password) VALUES (?, ?, ?)";
+     $stmt = mysqli_stmt_init($conn);
+    //  creating envelope 
+     $preparedStmt = mysqli_stmt_prepare($stmt,$sql);
+     if($preparedStmt) {
+        mysqli_stmt_bind_param($stmt, "sss" , $fullname, $email, $password_hash);
+
+        mysqli_stmt_execute($stmt);
+        echo "<div class = 'alert alert-success'> You are registered successfully</div>";
+     } else {
+        die("something went wrong");
+     }
 }
+
+
+else{
+    require_once "database.php";
+    $sql = INSERT INTO users(fullname, email, password) VALUES (?, ?, ?);
+    $stmt = mysqli_stmt_init($conn);
+    $preparedStmt = mysqli_stmt_prepare($stmt,$sql);
+
+    if($preparedStmt) {
+        mysqli_stmt_bind_parm
+    }
+
+
+}
+
 
 }
 
