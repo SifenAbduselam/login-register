@@ -65,26 +65,16 @@ else{
         mysqli_stmt_execute($stmt);
         echo "<div class = 'alert alert-success'> You are registered successfully</div>";
      } else {
-        die("something went wrong");
+        die(mysqli_error($conn));
      }
 }
 
 
-else{
-    require_once "database.php";
-    $sql = INSERT INTO users(fullname, email, password) VALUES (?, ?, ?);
-    $stmt = mysqli_stmt_init($conn);
-    $preparedStmt = mysqli_stmt_prepare($stmt,$sql);
 
-    if($preparedStmt) {
-        mysqli_stmt_bind_parm
-    }
 
 
 }
 
-
-}
 
     ?>
         <form action="registration.php" method="post">
