@@ -46,6 +46,18 @@ if(strlen($password) < 8) {
 if($password !== $passwordRepeat) {
     array_push($errors, "Password doesnt match");
 }
+
+require_once "database.php";
+
+$sql = "SELECT * FROM users WHERE email = '$email'";
+
+$result = mysqli_query($conn, $sql);
+$rowCount  = mysqli_num_rows($result);
+if($rowCount>0) {
+    array_push($errors, "Email already exists!");
+
+}
+
 if(count($errors) >0) {
     foreach($errors as $error) {
 
@@ -54,7 +66,7 @@ if(count($errors) >0) {
 }
 
 else{
-    require_once "database.php";
+    
     $sql = "INSERT INTO users(fullname, email, password) VALUES (?, ?, ?)";
      $stmt = mysqli_stmt_init($conn);
     //  creating envelope 
