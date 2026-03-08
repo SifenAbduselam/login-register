@@ -10,6 +10,39 @@
 </head>
 <body>
     <div class="container">
+
+
+    <?php  
+if(isset($_POST["login"]))
+    // did the form sent value called login?
+    {
+
+$email = $_POST["email"];
+$password=$_POST["password"];
+
+// if the email and password is there we will allow the user to login
+
+require_once"database.php";
+
+
+$sql =" SELECT * FROM user WHERE email = '$email'";
+// search for the email
+$result = mysqli_query($conn, $sql);
+// excute the query 
+$user = mysqli_fetch_array($result, MYSQLI_ASSOC );
+if($user) {
+     if(password_verify($password, $user["password"])) {
+        header("Location : index.php");
+        die();
+     }
+} else{
+    echo "<div class='alert alert-danger'>Email does not match</div> ";
+}
+
+
+}
+
+    ?>
         <form action="login.php" method="post">
             <div class="form-group">
                 <input type="email" placeholder="Enter Email:" class="form-control">
