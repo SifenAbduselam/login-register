@@ -15,6 +15,8 @@
 
 
 if(isset($_POST["submit"])) {
+
+// the below are pulling data from the request .
     $fullname = $_POST["fullname"];
     $email = $_POST["email"];
     $password = $_POST["password"];
@@ -48,6 +50,8 @@ if($password !== $passwordRepeat) {
 }
 
 require_once "database.php";
+
+// making 1 email for 1 user 
 
 $sql = "SELECT * FROM users WHERE email = '$email'";
 
@@ -109,3 +113,7 @@ else{
     </div>
 </body>
 </html>
+
+
+
+ 

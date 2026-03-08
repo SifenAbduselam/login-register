@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <form action="login.php" method="post">
+            <div class="form-group">
+                <input type="email" placeholder="Enter Email:" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type=password" placeholder="Enter Password:" class="form-control">
+            </div>
+            <div class="form-btn">
+                <input type="submit" value="login" name="login" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
 </body>
 </html>
