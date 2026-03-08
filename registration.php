@@ -109,6 +109,8 @@ else{
             </div>
             <div>
                 <input type="submit" class="btn btn-primary" value="register" name="submit">
+            <div><p>Already registered <a href="login.php">Login Here</a></p></div>
+
             </div>
         </form>
     </div>
