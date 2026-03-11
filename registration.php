@@ -11,6 +11,35 @@
     <div class="container">
 
 
+<?php
+
+require_once "database.php";
+
+if(isset($_POST['submit'])) {
+
+
+$fullname = trim($_POST["fullname"]);
+$email = trim($_POST["email"]);
+$password = $_POST["password"];
+$repeatPassword = $_POST["repeat-password"];
+
+
+$password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+
+
+
+
+}
+
+
+
+
+
+
+?>
+
+
         <form action="process_register.php" method="POST">
             <div class="form-group">
             <input type="text" class="form-control" name="fullname" placeholder="Enter name">
